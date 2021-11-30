@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "166383556482",
+    "firebase_url": "https://androidproyect-df32f-default-rtdb.firebaseio.com",
+    "project_id": "androidproyect-df32f",
+    "storage_bucket": "androidproyect-df32f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166383556482:android:eecaa334879787287a219b",
+        "android_client_info": {
+          "package_name": "mx.edu.itl.proyecto.crudfirebaseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166383556482-au0gisennnj43a3jepcugsofka9mcrcc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzM5Y_Lwck1DQUufkMqBxi2QT4mLDc4tg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166383556482-au0gisennnj43a3jepcugsofka9mcrcc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
