@@ -2,13 +2,11 @@ package mx.edu.itl.proyecto.crudfirebaseapp.modelo;
 
 public class Persona {
 
-    public String uid;
-    public String Nombre;
-    public String Apellidos;
-    public String Correo;
-
-    public Persona() {
-    }
+    private String uid;
+    private String Nombre;
+    private String Apellido;
+    private String Correo;
+    private String Password;
 
     public String getUid() {
         return uid;
@@ -26,12 +24,12 @@ public class Persona {
         Nombre = nombre;
     }
 
-    public String getApellidos() {
-        return Apellidos;
+    public String getApellido() {
+        return Apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        Apellidos = apellidos;
+    public void setApellido(String apellido) {
+        Apellido = apellido;
     }
 
     public String getCorreo() {
@@ -40,5 +38,18 @@ public class Persona {
 
     public void setCorreo(String correo) {
         Correo = correo;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    @Override
+    public String toString() {
+        return Nombre;
     }
 }
