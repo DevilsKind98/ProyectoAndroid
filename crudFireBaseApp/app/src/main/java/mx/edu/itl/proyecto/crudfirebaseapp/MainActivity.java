@@ -112,8 +112,20 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.icon_add:{
-                if (nombre.equals("")||correo.equals("")||password.equals("")||app.equals("")){
+               /* if (nombre.length()==0||correo.length()==0)||password.length()==0||app.length()==0){
                     validacion();
+                }*/
+                if (nombre.length()==0){
+                    nomP.setError("Requiered");
+                }
+                if (correo.length()==0){
+                    correoP.setError("Requiered");
+                }
+                if (password.length()==0){
+                    passwordP.setError("Requiered");
+                }
+                if(app.length()==0){
+                    appP.setError("Requiered");
                 }
                 else {
                     Persona p = new Persona();
@@ -160,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
         appP.setText("");
     }
 
-    private void validacion() {
+   /* private void validacion() {
         String nombre = nomP.getText().toString();
         String correo = correoP.getText().toString();
         String password = passwordP.getText().toString();
@@ -177,5 +189,7 @@ public class MainActivity extends AppCompatActivity {
         else if (password.equals("")){
             passwordP.setError("Required");
         }
-    }
+
+
+    }*/
 }
