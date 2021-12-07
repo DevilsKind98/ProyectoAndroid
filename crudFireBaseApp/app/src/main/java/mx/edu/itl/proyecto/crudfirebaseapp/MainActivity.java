@@ -146,13 +146,13 @@ public class MainActivity extends AppCompatActivity {
                     validacion();
                 }*/
                 if (nombre.length()==0){
-                    nomP.setError("Requiered");
+                    nomP.setError("Ingrese un nombre");
                 }
                 if (correo.length()==0){
-                    correoP.setError("Requiered");
+                    correoP.setError("Ingrese un numero");
                 }
                 if (password.length()==0){
-                    passwordP.setError("Requiered");
+                    passwordP.setError("Contraseña requerida");
                 }
                 if(app.length()==0){
                     appP.setError("Requiered");

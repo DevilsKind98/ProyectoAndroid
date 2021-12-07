@@ -32,6 +32,7 @@ public class Persona {
     private String Nombre;
     private String Apellido;
     private String Correo;
+    private int numero;
     private String Password;
     //----------------------------------------------------------------------------------------------
 
@@ -79,6 +80,18 @@ public class Persona {
 
     public void setCorreo(String correo) {
         Correo = correo;
+    }
+
+    //----------------------------------------------------------------------------------------------
+
+    public int getNumero() {
+        return numero;
+    }
+
+    //----------------------------------------------------------------------------------------------
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     //----------------------------------------------------------------------------------------------
