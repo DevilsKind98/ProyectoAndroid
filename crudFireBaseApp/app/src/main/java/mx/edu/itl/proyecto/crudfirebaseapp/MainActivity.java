@@ -57,16 +57,16 @@ import mx.edu.itl.proyecto.crudfirebaseapp.modelo.Persona;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Persona> listPerson = new ArrayList<Persona>();
+    private List<Persona> listaPersonas = new ArrayList<Persona>();
     ArrayAdapter<Persona> arrayAdapterPersona;
 
-    EditText nomP, numP,correoP,passwordP;
+    EditText nomP, numP,correoP, nipP;
     ListView listV_personas;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    Persona personaSelected;
+    Persona personaSeleccionada;
     //----------------------------------------------------------------------------------------------
 
     @Override
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         nomP = findViewById(R.id.txt_nombrePersona);
         numP = findViewById(R.id.txt_numeroPersona);
         correoP = findViewById(R.id.txt_correoPersona);
-        passwordP = findViewById(R.id.txt_passwordPersona);
+        nipP = findViewById(R.id.txt_nip);
 
         listV_personas = findViewById(R.id.lv_datosPersonas);
         inicializarFirebase();
@@ -86,11 +86,11 @@ public class MainActivity extends AppCompatActivity {
         listV_personas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                personaSelected = (Persona) parent.getItemAtPosition(position);
-                nomP.setText(personaSelected.getNombre());
-                numP.setText(personaSelected.getNumero());
-                correoP.setText(personaSelected.getCorreo());
-                passwordP.setText(personaSelected.getPassword());
+                personaSeleccionada = (Persona) parent.getItemAtPosition(position);
+                nomP.setText(personaSeleccionada.getNombre());
+                correoP.setText(personaSeleccionada.getCorreo());
+                numP.setText(personaSeleccionada.getNumero().toString());
+                nipP.setText(personaSeleccionada.getNip().toString());
             }
         });
 
@@ -102,19 +102,18 @@ public class MainActivity extends AppCompatActivity {
         databaseReference.child("Persona").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listPerson.clear();
+                listaPersonas.clear();
                 for (DataSnapshot objSnaptshot : dataSnapshot.getChildren()){
                     Persona p = objSnaptshot.getValue(Persona.class);
-                    listPerson.add(p);
+                    listaPersonas.add(p);
 
-                    arrayAdapterPersona = new ArrayAdapter<Persona>(MainActivity.this, android.R.layout.simple_list_item_1, listPerson);
+                    arrayAdapterPersona = new ArrayAdapter<Persona>(MainActivity.this,
+                            android.R.layout.simple_list_item_1, listaPersonas);
                     listV_personas.setAdapter(arrayAdapterPersona);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
@@ -137,54 +136,71 @@ public class MainActivity extends AppCompatActivity {
 
         String nombre = nomP.getText().toString();
         String correo = correoP.getText().toString();
-        String password = passwordP.getText().toString();
-        String app = numP.getText().toString();
+        String numero = numP.getText().toString();
+        String nip    = nipP.getText().toString();
 
         switch (item.getItemId()){
+
             case R.id.icon_add:{
-               /* if (nombre.length()==0||correo.length()==0)||password.length()==0||app.length()==0){
-                    validacion();
-                }*/
+
                 if (nombre.length()==0){
                     nomP.setError("Ingrese un nombre");
                 }
                 if (correo.length()==0){
-                    correoP.setError("Ingrese un numero");
+                    correoP.setError("Ingrese un Correo");
                 }
-                if (password.length()==0){
-                    passwordP.setError("Contraseña requerida");
+                if(numero.length()==0){
+                    numP.setError("Ingrese su numero");
                 }
-                if(app.length()==0){
-                    numP.setError("Requiered");
+                if (nip.length()==0){
+                    nipP.setError("Ingrese un numero");
                 }
                 else {
                     Persona p = new Persona();
                     p.setUid(UUID.randomUUID().toString());
                     p.setNombre(nombre);
-                    p.setApellido(app);
                     p.setCorreo(correo);
-                    p.setPassword(password);
+                    p.setNumero(Integer.parseInt(numero));
+                    p.setNip(Integer.parseInt(nip));
                     databaseReference.child("Persona").child(p.getUid()).setValue(p);
                     Toast.makeText(this, "Agregado", Toast.LENGTH_LONG).show();
                     limpiarCajas();
                 }
                 break;
             }
+
             case R.id.icon_save:{
-                Persona p = new Persona();
-                p.setUid(personaSelected.getUid());
-                p.setNombre(nomP.getText().toString().trim());
-                p.setApellido(numP.getText().toString().trim());
-                p.setCorreo(correoP.getText().toString().trim());
-                p.setPassword(passwordP.getText().toString().trim());
-                databaseReference.child("Persona").child(p.getUid()).setValue(p);
-                Toast.makeText(this,"Actualizado", Toast.LENGTH_LONG).show();
-                limpiarCajas();
+
+                if (nombre.length()==0){
+                    nomP.setError("Ingrese un nombre");
+                }
+                if (correo.length()==0){
+                    correoP.setError("Ingrese un Correo");
+                }
+                if(numero.length()==0){
+                    numP.setError("Ingrese su numero");
+                }
+                if (nip.length()==0){
+                    nipP.setError("Ingrese un numero");
+                }
+                else {
+
+                    Persona p = new Persona();
+                    p.setUid(personaSeleccionada.getUid());
+                    p.setNombre(nomP.getText().toString().trim());
+                    p.setCorreo(correoP.getText().toString().trim());
+                    p.setNumero(Integer.parseInt(numP.getText().toString().trim()));
+                    p.setNip(Integer.parseInt(nipP.getText().toString().trim()));
+                    databaseReference.child("Persona").child(p.getUid()).setValue(p);
+                    Toast.makeText(this, "Actualizado", Toast.LENGTH_LONG).show();
+                    limpiarCajas();
+                }
                 break;
             }
             case R.id.icon_delete:{
+
                 Persona p = new Persona();
-                p.setUid(personaSelected.getUid());
+                p.setUid(personaSeleccionada.getUid());
                 databaseReference.child("Persona").child(p.getUid()).removeValue();
                 Toast.makeText(this,"Eliminado", Toast.LENGTH_LONG).show();
                 limpiarCajas();
@@ -203,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
     private void limpiarCajas() {
         nomP.setText("");
         correoP.setText("");
-        passwordP.setText("");
+        nipP.setText("");
         numP.setText("");
     }
     //----------------------------------------------------------------------------------------------

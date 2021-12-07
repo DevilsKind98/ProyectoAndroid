@@ -29,11 +29,11 @@ package mx.edu.itl.proyecto.crudfirebaseapp.modelo;
 public class Persona {
 
     private String uid;
+
     private String Nombre;
-    private String Apellido;
     private String Correo;
-    private int numero;
-    private String Password;
+    private Integer numero;
+    private Integer Nip;
     //----------------------------------------------------------------------------------------------
 
     public String getUid() {
@@ -60,18 +60,6 @@ public class Persona {
 
     //----------------------------------------------------------------------------------------------
 
-    public String getApellido() {
-        return Apellido;
-    }
-
-    //----------------------------------------------------------------------------------------------
-
-    public void setApellido(String apellido) {
-        Apellido = apellido;
-    }
-
-    //----------------------------------------------------------------------------------------------
-
     public String getCorreo() {
         return Correo;
     }
@@ -84,26 +72,26 @@ public class Persona {
 
     //----------------------------------------------------------------------------------------------
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
     //----------------------------------------------------------------------------------------------
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
     //----------------------------------------------------------------------------------------------
 
-    public String getPassword() {
-        return Password;
+    public Integer getNip() {
+        return Nip;
     }
 
     //----------------------------------------------------------------------------------------------
 
-    public void setPassword(String password) {
-        Password = password;
+    public void setNip(Integer nip) {
+        Nip = nip;
     }
 
     //----------------------------------------------------------------------------------------------

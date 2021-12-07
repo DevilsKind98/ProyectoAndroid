@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:paddingTop="15dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,10 +53,10 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña">
+        android:hint="NIP">
 
         <EditText
-            android:id="@+id/txt_passwordPersona"
+            android:id="@+id/txt_nip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -70,7 +70,7 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Lista de Personas" />
+        android:text="Registro de Personas" />
 
     <ListView
         android:id="@+id/lv_datosPersonas"
