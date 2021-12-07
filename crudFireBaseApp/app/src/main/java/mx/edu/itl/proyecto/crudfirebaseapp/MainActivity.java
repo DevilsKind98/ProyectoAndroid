@@ -1,5 +1,6 @@
 package mx.edu.itl.proyecto.crudfirebaseapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.Menu;
@@ -160,6 +161,10 @@ public class MainActivity extends AppCompatActivity {
                 limpiarCajas();
                 break;
             }
+            case R.id.acercaDe:
+                Intent intent = new Intent(this,AcercaDeActivity.class);
+                startActivity(intent);
+                break;
             default:break;
         }
         return true;

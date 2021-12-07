@@ -16,5 +16,8 @@
         android:icon="@drawable/ic_baseline_delete_24"
         android:title="Edit Done"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/acercaDe"
+        android:title="Acerca De" />
 
 </menu>

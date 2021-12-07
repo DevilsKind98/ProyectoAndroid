@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">crudFireBaseApp</string>
+    <string name="app_name" translatable="false">crudFireBaseApp</string>
+        <string name="institucion1">TECNOLOGICO NACIONAL DE MEXICO</string>
+        <string name="institucion2">INSTITUTO TECNOLOGICO DE LA LAGUNA</string>
+        <string name="carrera">Ingenieria en Sistemas Computacionales</string>
+        <string name="materia">Desarollo en Android</string>
+        <string name="semestre">Semestre: Ago-Dig/2021</string>
+        <string name="Grupo">"A" 10-11</string>
+        <string name="nombreapp">U3PortadaApp</string>
+        <string name="leyenda_alumno">Alumno</string>
+        <string name="alumno">Jesus Andres Muñoz Morales 17130811</string>
+        <string name="alumno2">Roberto Martinez Intrinseco xD 17130811</string>
+        <string name="pie">(C) Derechos reservados, Torreon, Coha, Mex, 2021</string>
 </resources>
