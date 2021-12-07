@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                     p.setNombre(nombre);
                     p.setCorreo(correo);
                     p.setNumero(Integer.parseInt(numero));
-                    p.setNip(Integer.parseInt(nip));
+                    p.setNip(Double.parseDouble(nip));
                     databaseReference.child("Persona").child(p.getUid()).setValue(p);
                     Toast.makeText(this, "Agregado", Toast.LENGTH_LONG).show();
                     limpiarCajas();
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                     p.setNombre(nomP.getText().toString().trim());
                     p.setCorreo(correoP.getText().toString().trim());
                     p.setNumero(Integer.parseInt(numP.getText().toString().trim()));
-                    p.setNip(Integer.parseInt(nipP.getText().toString().trim()));
+                    p.setNip(Double.parseDouble(nipP.getText().toString().trim()));
                     databaseReference.child("Persona").child(p.getUid()).setValue(p);
                     Toast.makeText(this, "Actualizado", Toast.LENGTH_LONG).show();
                     limpiarCajas();

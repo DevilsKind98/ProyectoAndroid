@@ -33,7 +33,7 @@ public class Persona {
     private String Nombre;
     private String Correo;
     private Integer numero;
-    private Integer Nip;
+    private Double Nip;
     //----------------------------------------------------------------------------------------------
 
     public String getUid() {
@@ -84,13 +84,13 @@ public class Persona {
 
     //----------------------------------------------------------------------------------------------
 
-    public Integer getNip() {
+    public Double getNip() {
         return Nip;
     }
 
     //----------------------------------------------------------------------------------------------
 
-    public void setNip(Integer nip) {
+    public void setNip(Double nip) {
         Nip = nip;
     }
 

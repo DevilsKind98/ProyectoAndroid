@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword|numberDecimal"
+            android:inputType="numberDecimal"
             android:paddingTop="15dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
