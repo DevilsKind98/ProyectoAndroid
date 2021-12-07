@@ -1,3 +1,29 @@
+/*------------------------------------------------------------------------------------------
+:*                         TECNOLOGICO NACIONAL DE MEXICO
+:*                       INSTITUTO TECNOLOGICO DE LA LAGUNA
+:*                     INGENIERIA EN SISTEMAS COMPUTACIONALES
+:*                             DESARROLLO EN ANDROID "A"
+:*
+:*                   SEMESTRE: AGO-DIC/2021    HORA: 10-11 HRS
+:*
+:*             Clase que contiene los metodos getter y setter
+:*
+:*  Archivo     : MainActivity.java
+:*  Autores     : Jesus Andres Muñoz Morales     17130811
+:*                Roberto Mendez Cardenas        17130805
+:*                Edson Alaing Cheang Gonzalez   17130775
+:*                Maria Guadalupe Reza Casas     17130829
+:*                Jesus Alberto Diaz de Leon     17130778
+:*  Fecha       : 01/12/2021
+:*  Compilador  : Android Studio Artic Fox 2020.3.1 + JDK 11
+:*  Descripción : En esta clase se tendran los metodos necesarios para
+:*                la ejecucion de la actividad principal.
+:*  Ultima modif:
+:*  Fecha       Modific�             Motivo
+:*==========================================================================================
+:*
+:*------------------------------------------------------------------------------------------*/
+
 package mx.edu.itl.proyecto.crudfirebaseapp;
 
 import android.content.Intent;
@@ -41,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
 
     Persona personaSelected;
+    //----------------------------------------------------------------------------------------------
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //----------------------------------------------------------------------------------------------
+
     private void listarDatos() {
         databaseReference.child("Persona").addValueEventListener(new ValueEventListener() {
             @Override
@@ -89,20 +118,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //----------------------------------------------------------------------------------------------
     private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         //firebaseDatabase.setPersistenceEnabled(true);
         databaseReference = firebaseDatabase.getReference();
     }
-
+    //----------------------------------------------------------------------------------------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return super.onCreateOptionsMenu(menu);
     }
-
+    //----------------------------------------------------------------------------------------------
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -169,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+    //----------------------------------------------------------------------------------------------
 
     private void limpiarCajas() {
         nomP.setText("");
@@ -176,25 +206,5 @@ public class MainActivity extends AppCompatActivity {
         passwordP.setText("");
         appP.setText("");
     }
-
-   /* private void validacion() {
-        String nombre = nomP.getText().toString();
-        String correo = correoP.getText().toString();
-        String password = passwordP.getText().toString();
-        String app = appP.getText().toString();
-        if (nombre.equals("")){
-            nomP.setError("Required");
-        }
-        else if (app.equals("")){
-            appP.setError("Required");
-        }
-        else if (correo.equals("")){
-            correoP.setError("Required");
-        }
-        else if (password.equals("")){
-            passwordP.setError("Required");
-        }
-
-
-    }*/
+    //----------------------------------------------------------------------------------------------
 }
