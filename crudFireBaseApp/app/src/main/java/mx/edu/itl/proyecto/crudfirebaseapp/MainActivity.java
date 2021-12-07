@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Persona> listPerson = new ArrayList<Persona>();
     ArrayAdapter<Persona> arrayAdapterPersona;
 
-    EditText nomP, appP,correoP,passwordP;
+    EditText nomP, numP,correoP,passwordP;
     ListView listV_personas;
 
     FirebaseDatabase firebaseDatabase;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         nomP = findViewById(R.id.txt_nombrePersona);
-        appP = findViewById(R.id.txt_appPersona);
+        numP = findViewById(R.id.txt_numeroPersona);
         correoP = findViewById(R.id.txt_correoPersona);
         passwordP = findViewById(R.id.txt_passwordPersona);
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 personaSelected = (Persona) parent.getItemAtPosition(position);
                 nomP.setText(personaSelected.getNombre());
-                appP.setText(personaSelected.getApellido());
+                numP.setText(personaSelected.getNumero());
                 correoP.setText(personaSelected.getCorreo());
                 passwordP.setText(personaSelected.getPassword());
             }
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         String nombre = nomP.getText().toString();
         String correo = correoP.getText().toString();
         String password = passwordP.getText().toString();
-        String app = appP.getText().toString();
+        String app = numP.getText().toString();
 
         switch (item.getItemId()){
             case R.id.icon_add:{
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     passwordP.setError("Contraseña requerida");
                 }
                 if(app.length()==0){
-                    appP.setError("Requiered");
+                    numP.setError("Requiered");
                 }
                 else {
                     Persona p = new Persona();
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 Persona p = new Persona();
                 p.setUid(personaSelected.getUid());
                 p.setNombre(nomP.getText().toString().trim());
-                p.setApellido(appP.getText().toString().trim());
+                p.setApellido(numP.getText().toString().trim());
                 p.setCorreo(correoP.getText().toString().trim());
                 p.setPassword(passwordP.getText().toString().trim());
                 databaseReference.child("Persona").child(p.getUid()).setValue(p);
@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
         nomP.setText("");
         correoP.setText("");
         passwordP.setText("");
-        appP.setText("");
+        numP.setText("");
     }
     //----------------------------------------------------------------------------------------------
 }

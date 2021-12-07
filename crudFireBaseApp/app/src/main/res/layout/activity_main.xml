@@ -25,10 +25,10 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Apellidos">
+        android:hint="Correo electronico">
 
         <EditText
-            android:id="@+id/txt_appPersona"
+            android:id="@+id/txt_correoPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -39,29 +39,29 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo">
+        android:hint="Numero de telefono">
 
         <EditText
-            android:id="@+id/txt_correoPersona"
+            android:id="@+id/txt_numeroPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:paddingTop="15dp"/>
+            android:inputType="number"
+            android:paddingTop="15dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password">
+        android:hint="Contraseña">
 
         <EditText
             android:id="@+id/txt_passwordPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
-            android:paddingTop="15dp"/>
+            android:inputType="textPassword|numberDecimal"
+            android:paddingTop="15dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
