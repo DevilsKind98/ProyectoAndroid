@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     p.setUid(UUID.randomUUID().toString());
                     p.setNombre(nombre);
                     p.setCorreo(correo);
-                    p.setNumero(Integer.parseInt(numero));
+                    p.setNumero(Long.parseLong(numero));
                     p.setNip(Double.parseDouble(nip));
                     databaseReference.child("Persona").child(p.getUid()).setValue(p);
                     Toast.makeText(this, "Agregado", Toast.LENGTH_LONG).show();
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     numP.setError("Ingrese su numero");
                 }
                 if (nip.length()==0){
-                    nipP.setError("Ingrese un numero");
+                    nipP.setError("Ingrese un numero con decimal");
                 }
                 else {
 
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
                     p.setUid(personaSeleccionada.getUid());
                     p.setNombre(nomP.getText().toString().trim());
                     p.setCorreo(correoP.getText().toString().trim());
-                    p.setNumero(Integer.parseInt(numP.getText().toString().trim()));
+                    p.setNumero(Long.parseLong(numP.getText().toString().trim()));
                     p.setNip(Double.parseDouble(nipP.getText().toString().trim()));
                     databaseReference.child("Persona").child(p.getUid()).setValue(p);
                     Toast.makeText(this, "Actualizado", Toast.LENGTH_LONG).show();

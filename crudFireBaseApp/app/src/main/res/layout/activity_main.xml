@@ -45,8 +45,8 @@
             android:id="@+id/txt_numeroPersona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
+            android:ems="11"
+            android:inputType="phone"
             android:paddingTop="15dp" />
     </com.google.android.material.textfield.TextInputLayout>
 

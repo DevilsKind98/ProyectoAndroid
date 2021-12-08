@@ -32,7 +32,7 @@ public class Persona {
 
     private String Nombre;
     private String Correo;
-    private Integer numero;
+    private Long numero;
     private Double Nip;
     //----------------------------------------------------------------------------------------------
 
@@ -72,13 +72,13 @@ public class Persona {
 
     //----------------------------------------------------------------------------------------------
 
-    public Integer getNumero() {
+    public Long getNumero() {
         return numero;
     }
 
     //----------------------------------------------------------------------------------------------
 
-    public void setNumero(Integer numero) {
+    public void setNumero(Long numero) {
         this.numero = numero;
     }
 
